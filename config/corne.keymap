@@ -7,8 +7,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/rgb.h>
-#include <dt-bindings/zmk/ext_power.h>
+#include <dt-bindings/zmk/backlight.h>
 #include "keymap_french_osx.h"
 
 #define DEFAULT 0
@@ -128,15 +127,15 @@
                         label = "adjust";
 
 // -----------------------------------------------------------------------------------------------------
-// |  | F1      | F2      | F3      | F4      | F5      |   | F6 | F7 | F8     | F9     | F10    | F11 |
-// |  | RGB_TOG | RGB_SAI | RGB_HUI | RGB_BRI | RGB_EFF |   |    |    |        |        |        | F12 |
-// |  | PWR_TOG | RGB_SAD | RGB_HUD | RGB_BRD | RGB_EFR |   |    |    | BT_PRV | BT_NXT | BT_CLR |     |
-//                        |         |         |         |   |    |    |        |
+// |  | F1     | F2 | F3 | F4 | F5       |   | F6 | F7 | F8     | F9     | F10    | F11 |
+// |  | BL_TOG |    |    |    | BL_CYCLE |   |    |    |        |        |        | F12 |
+// |  |        |    |    |    |          |   |    |    | BT_PRV | BT_NXT | BT_CLR |     |
+//                  |    |    |          |   |    |    |        |
                         bindings = <
-   &none  &kp F1            &kp F2          &kp F3          &kp F4          &kp F5           &kp F6           &kp F7 &kp F8       &kp F9      &kp F10      &kp F11
-   &none  &rgb_ug RGB_TOG   &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_BRI &rgb_ug RGB_EFF  &rgb_ug RGB_TOG  &none  &none        &none       &none        &kp F12
-   &none  &none             &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_BRD &rgb_ug RGB_EFR  &none            &none  &bt BT_PRV   &bt BT_NXT  &bt BT_CLR   &none
-                                            &none           &none           &none            &none            &none  &none
+   &none  &kp F1       &kp F2  &kp F3  &kp F4  &kp F5        &kp F6  &kp F7 &kp F8       &kp F9      &kp F10      &kp F11
+   &none  &bl BL_TOG   &none   &none   &none   &bl BL_CYCLE  &none   &none  &none        &none       &none        &kp F12
+   &none  &none        &none   &none   &none   &none         &none   &none  &bt BT_PRV   &bt BT_NXT  &bt BT_CLR   &none
+                               &none   &none   &none         &none   &none  &none
                         >;
                 };
 
