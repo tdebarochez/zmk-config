@@ -53,6 +53,23 @@
 //    };
 // };
 
+/ {
+    backlight: pwmleds {
+        compatible = "pwm-leds";
+        label = "Backlight LEDs";
+        pwm_led_0 {
+            pwms = <&pwm0 45>;
+            label = "Backlight LED 0";
+        };
+    };
+};
+
+/ {
+    chosen {
+        zmk,backlight = &backlight;
+    };
+}:
+
 
 / {
 
