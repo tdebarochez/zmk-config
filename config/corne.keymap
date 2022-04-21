@@ -68,7 +68,7 @@
     chosen {
         zmk,backlight = &backlight;
     };
-}:
+};
 
 
 / {
