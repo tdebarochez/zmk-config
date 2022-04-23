@@ -20,11 +20,6 @@
 #define NUM     4
 
 
-&mt {
-    tapping-term-ms = <300>;
-};
-
-
 &spi1 {
    compatible = "nordic,nrf-spim";
   /* Cannot be used together with i2c0. */
@@ -58,6 +53,17 @@
 
 
 / {
+        behaviors {
+                hm: homerow_mods {
+                        compatible = "zmk,behavior-hold-tap";
+                        label = "HOMEROW_MODS";
+                        #binding-cells = <2>;
+                        tapping-term-ms = <150>;
+                        quick-tap-ms = <0>;
+                        flavor = "tap-preferred";
+                        bindings = <&kp>, <&kp>;
+                };
+        };
 
         keymap {
                 compatible = "zmk,keymap";
@@ -71,10 +77,10 @@
 // | CTRL     | SHFT/Z  |  X  |  C      |  V  |  B      |   |  N      |  M      |  ,   |  .  |  SHFT//  |  -   |
 //                            | RSE/ESC | ALT | SPC/GUI |   | ENT/LWR | LWR/TAB | BKSP |
                         bindings = <
-   &lt RAISE ESC &mt LCTRL FR_Q  &kp FR_W     &kp FR_F      &kp FR_P  &kp FR_G         &kp FR_J       &kp FR_L       &kp FR_U     &kp FR_Y   &mt RCTRL FR_SCLN  &kp FR_BSLS
-   &mt LSHFT TAB &kp FR_A        &kp FR_R     &kp FR_S      &kp FR_T  &kp FR_D         &kp FR_H       &kp FR_N       &kp FR_E     &kp FR_I   &kp FR_O           &kp FR_QUOT
-   &kp LCTRL     &mt LSHFT FR_Z  &kp FR_X     &kp FR_C      &kp FR_V  &kp FR_B         &kp FR_K       &kp FR_M       &kp FR_COMM  &kp FR_DOT &mt RSHFT FR_SLSH  &kp FR_MINUS
-                                              &lt RAISE ESC &kp LALT  &mt LGUI SPACE   &lt LOWER RET  &lt LOWER TAB  &kp BSPC
+   &lt RAISE ESC &hm LCTRL FR_Q  &kp FR_W     &kp FR_F      &kp FR_P  &kp FR_G         &kp FR_J       &kp FR_L       &kp FR_U     &kp FR_Y   &hm RCTRL FR_SCLN  &kp FR_BSLS
+   &hm LSHFT TAB &kp FR_A        &kp FR_R     &kp FR_S      &kp FR_T  &kp FR_D         &kp FR_H       &kp FR_N       &kp FR_E     &kp FR_I   &kp FR_O           &kp FR_QUOT
+   &kp LCTRL     &hm LSHFT FR_Z  &kp FR_X     &kp FR_C      &kp FR_V  &kp FR_B         &kp FR_K       &kp FR_M       &kp FR_COMM  &kp FR_DOT &hm RSHFT FR_SLSH  &kp FR_MINUS
+                                              &lt RAISE ESC &kp LALT  &hm LGUI SPACE   &hm LGUI RET   &lt LOWER TAB  &kp BSPC
                         >;
 
                 };
