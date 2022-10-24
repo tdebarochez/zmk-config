@@ -132,14 +132,14 @@
                         label = "num";
 
 // --------------------------------------------------------------------------------------------------
-// |  |  |  |      |     |         |   |         | è/7     | !/8 | ç/9 | + | - |
-// |  |  |  |      |     |         |   |  =      | '/4     | (/5 | §/6 | * | / |
-// |  |  |  |      |     |         |   | à/0     | &/1     | é/2 | "/3 | , | . |
+// |  |  |  |      |     |         |   |  -      | è/7     | !/8 | ç/9 | BSPC | - |
+// |  |  |  |      |     |         |   |  +      | '/4     | (/5 | §/6 | *    | / |
+// |  |  |  |      |     |         |   | à/0     | &/1     | é/2 | "/3 | /    | . |
 //          | SHFT | ALT | SPC/GUI |   | ENT/GUI | LWR/TAB | DEL |
                         bindings = <
-   &none     &none &none &none     &none    &none          &none        &kp FR_7   &kp FR_8  &kp FR_9  &kp BSPC     &kp BSPC
-   &kp LSHFT &none &none &none     &none    &none          &kp FR_EQUAL &kp FR_4   &kp FR_5  &kp FR_6  &kp FR_ASTR  &kp FR_SLSH
-   &kp LCTRL &none &none &none     &none    &none          &kp FR_0     &kp FR_1   &kp FR_2  &kp FR_3  &kp FR_COMM  &kp FR_DOT
+   &none     &none &none &none     &none    &none          &kp FR_MINUS &kp FR_7   &kp FR_8  &kp FR_9  &kp BSPC     &kp BSPC
+   &kp LSHFT &none &none &none     &none    &none          &kp FR_PLUS  &kp FR_4   &kp FR_5  &kp FR_6  &kp FR_ASTR  &kp FR_SLSH
+   &kp LCTRL &none &none &none     &none    &none          &kp FR_0     &kp FR_1   &kp FR_2  &kp FR_3  &kp FR_SLSH  &kp FR_DOT
                          &kp LSHFT &kp LALT &hm LGUI SPACE &hm LGUI RET &lt LOWER TAB &kp DEL
                         >;
                 };
