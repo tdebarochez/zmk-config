@@ -61,6 +61,87 @@
                 };
         };
 
+        combos {
+                compatible = "zmk,combos";
+                combo_esc {
+                        timeout-ms = <50>;
+                        key-positions = <1 2>;
+                        bindings = <&kp TAB>;
+                };
+        };
+        macros {
+                focus_arc: focus_arc {
+                        label = "ZM_focus_arc";
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        bindings
+                                = <&macro_press &kp LSHFT &kp LCTRL &kp LALT &kp LGUI>
+                                , <&macro_tap &kp FR_Q>
+                                , <&macro_release &kp LSHFT &kp LCTRL &kp LALT &kp LGUI>
+                                ;
+                };
+                focus_slack: focus_slack {
+                        label = "ZM_focus_slack";
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        bindings
+                                = <&macro_press &kp LSHFT &kp LCTRL &kp LALT &kp LGUI>
+                                , <&macro_tap &kp FR_W>
+                                , <&macro_release &kp LSHFT &kp LCTRL &kp LALT &kp LGUI>
+                                ;
+                };
+                focus_mail: focus_mail {
+                        label = "ZM_focus_mail";
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        bindings
+                                = <&macro_press &kp LSHFT &kp LCTRL &kp LALT &kp LGUI>
+                                , <&macro_tap &kp FR_F>
+                                , <&macro_release &kp LSHFT &kp LCTRL &kp LALT &kp LGUI>
+                                ;
+                };
+                focus_term: focus_term {
+                        label = "ZM_focus_term";
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        bindings
+                                = <&macro_press &kp LSHFT &kp LCTRL &kp LALT &kp LGUI>
+                                , <&macro_tap &kp FR_P>
+                                , <&macro_release &kp LSHFT &kp LCTRL &kp LALT &kp LGUI>
+                                ;
+                };
+                focus_vscode: focus_vscode {
+                        label = "ZM_focus_vscode";
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        bindings
+                                = <&macro_press &kp LSHFT &kp LCTRL &kp LALT &kp LGUI>
+                                , <&macro_tap &kp FR_G>
+                                , <&macro_release &kp LSHFT &kp LCTRL &kp LALT &kp LGUI>
+                                ;
+                };
+                show_emojis: show_emojis {
+                        label = "ZM_show_emojis";
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        bindings
+                                = <&macro_press &kp LCTRL &kp LGUI>
+                                , <&macro_tap &kp SPACE>
+                                , <&macro_release &kp LCTRL &kp LGUI>
+                                ;
+                };
+                screen_capture: screen_capture {
+                        label = "ZM_screen_capture";
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        bindings
+                                = <&macro_press &kp LSHFT &kp LCTRL &kp LGUI>
+                                , <&macro_tap &kp FR_4>
+                                , <&macro_release &kp LSHFT &kp LCTRL &kp LGUI>
+                                ;
+                };
+        };
+
         keymap {
                 compatible = "zmk,keymap";
 
@@ -132,15 +213,15 @@
                         label = "num";
 
 // --------------------------------------------------------------------------------------------------
-// |  |  |  |      |     |         |   |  -      | è/7     | !/8 | ç/9 | BSPC | - |
-// |  |  |  |      |     |         |   |  +      | '/4     | (/5 | §/6 | *    | / |
-// |  |  |  |      |     |         |   | à/0     | &/1     | é/2 | "/3 | /    | . |
-//          | SHFT | ALT | SPC/GUI |   | ENT/GUI | LWR/TAB | DEL |
+// |  | Arc | Slack          | Mail | iTerm |  VScode |  | -       | è/7     | !/8 | ç/9 | BSPC | - |
+// |  |  👻 | Screen Capture |      |       |         |  | +       | '/4     | (/5 | §/6 | *    | / |
+// |  |     |                |      |       |         |  | à/0     | &/1     | é/2 | "/3 | /    | . |
+//                           | SHFT | ALT   | SPC/GUI |  | ENT/GUI | LWR/TAB | DEL |
                         bindings = <
-   &none     &none &none &none     &none    &none          &kp FR_MINUS &kp FR_7   &kp FR_8  &kp FR_9  &kp BSPC     &kp BSPC
-   &kp LSHFT &none &none &none     &none    &none          &kp FR_PLUS  &kp FR_4   &kp FR_5  &kp FR_6  &kp FR_ASTR  &kp FR_SLSH
-   &kp LCTRL &none &none &none     &none    &none          &kp FR_0     &kp FR_1   &kp FR_2  &kp FR_3  &kp FR_SLSH  &kp FR_DOT
-                         &kp LSHFT &kp LALT &hm LGUI SPACE &hm LGUI RET &lt LOWER TAB &kp DEL
+   &none  &focus_arc    &focus_slack     &focus_mail &focus_term &focus_vscode   &kp FR_MINUS &kp FR_7      &kp FR_8  &kp FR_9  &kp BSPC     &kp BSPC
+   &none  &show_emojis  &screen_capture  &none       &none       &none           &kp FR_PLUS  &kp FR_4      &kp FR_5  &kp FR_6  &kp FR_ASTR  &kp FR_SLSH
+   &none  &none         &none            &none       &none       &none           &kp FR_0     &kp FR_1      &kp FR_2  &kp FR_3  &kp FR_SLSH  &kp FR_DOT
+                                         &kp LSHFT   &kp LALT    &hm LGUI SPACE  &hm LGUI RET &lt LOWER TAB &kp DEL
                         >;
                 };
         };
